@@ -1,0 +1,17 @@
+# docker-compose.yml — Semana 6: PostgreSQL 16 para SaludIPS
+services:
+  saludips-db:
+    image: postgres:16
+    container_name: saludips-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: saludips
+      POSTGRES_PASSWORD: saludips123
+      POSTGRES_DB: saludips_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - saludips_data:/var/lib/postgresql/data
+
+volumes:
+  saludips_data:
